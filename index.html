@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#162a2d" />
+  <meta name="description" content="Take a little walk down Gentle Media's digital storefront street." />
+  <title>Gentle Media — Pixel Street</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Gentle Media home"><span class="brand-mark">GM</span><span>GENTLE MEDIA <small>WEB DESIGN & CREATIVE STRATEGY</small></span></a>
+      <div class="top-actions"><span class="walk-hint">WALK THE BLOCK <b>↑ ↓ ← →</b></span><button class="help-button" id="helpButton" aria-label="Show controls">?</button></div>
+    </header>
+    <section class="game-wrap" aria-label="Interactive pixel street">
+      <div class="scene-frame"><canvas id="game" width="960" height="600" aria-label="Pixel-art street. Use arrow keys or WASD to walk, then press E near a storefront."></canvas>
+        <div class="scene-title"><span>GENTLE MEDIA PRESENTS</span><strong>THE CLIENT BLOCK</strong></div>
+        <div class="interaction" id="interaction" hidden><span class="keycap">E</span><span id="interactionText">Explore storefront</span></div>
+        <div class="toast" id="toast" aria-live="polite" hidden></div>
+      </div>
+      <div class="mobile-controls" aria-label="Touch movement controls">
+        <button data-move="up" aria-label="Walk up">▲</button><div><button data-move="left" aria-label="Walk left">◀</button><button data-move="down" aria-label="Walk down">▼</button><button data-move="right" aria-label="Walk right">▶</button></div>
+      </div>
+    </section>
+    <footer class="bottom-bar"><span><i class="status-dot"></i> A neighborhood of good ideas.</span><span id="locationLabel">Find a storefront to begin.</span><button id="soundButton" class="sound-button" aria-pressed="false">SOUND OFF</button></footer>
+  </main>
+  <dialog id="storeDialog" class="store-dialog">
+    <div class="dialog-top"><div><span class="eyebrow">GENTLE MEDIA CLIENT</span><h1 id="storeTitle">Storefront</h1></div><button class="close-button" id="closeDialog" aria-label="Close">×</button></div>
+    <p id="storeDescription"></p>
+    <div class="site-preview" id="previewWrap"><iframe id="siteFrame" title="Client homepage preview" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="frame-fallback" id="frameFallback" hidden><span class="fallback-icon">↗</span><strong>This site keeps its front door on its own domain.</strong><p>Open it in a new tab to explore the full homepage.</p></div></div>
+    <div class="dialog-bottom"><span class="site-note">Some sites prevent embedded previews.</span><a id="visitLink" class="visit-link" href="#" target="_blank" rel="noopener noreferrer">VISIT WEBSITE <span>↗</span></a></div>
+  </dialog>
+  <dialog id="helpDialog" class="help-dialog"><button class="close-button" id="closeHelp" aria-label="Close">×</button><span class="eyebrow">HOW TO EXPLORE</span><h2>Take a stroll.</h2><p>Walk around the block and stop by a storefront. Press <kbd>E</kbd> to step inside and see the website.</p><div class="controls-grid"><span>MOVE</span><b>W A S D</b><b>↑ ← ↓ →</b><span>EXPLORE</span><b>E / ENTER</b><span>TOUCH</span><b>Use the arrow pad</b></div><button class="visit-link help-done" id="doneHelp">LET’S GO</button></dialog>
+  <script src="data/sites.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>
